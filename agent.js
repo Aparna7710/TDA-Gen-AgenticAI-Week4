@@ -1,5 +1,5 @@
 const GEMINI_API_KEY = window.GEMINI_API_KEY;
-const GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 
 const sessionMemory = [];
 
