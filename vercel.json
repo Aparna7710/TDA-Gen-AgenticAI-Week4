@@ -1,0 +1,7 @@
+{
+  "buildCommand": "echo \"window.GEMINI_API_KEY='$GEMINI_API_KEY';\" > config.js",
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
