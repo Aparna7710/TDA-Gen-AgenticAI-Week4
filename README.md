@@ -2,7 +2,7 @@
 
 **Week 4 — Agentic AI | AI Summer School**
 
-Clarity Agent is an agentic AI web application built with HTML, CSS, and JavaScript using the Gemini 1.5 Flash API. Unlike a basic chatbot, it follows a multi-step workflow — planning, tool usage, and synthesis — before returning a final response.
+Clarity Agent is an agentic AI web application built with HTML, CSS, and JavaScript using the Gemini 3.5 Flash API. Unlike a basic chatbot, it follows a multi-step workflow — planning, tool usage, and synthesis — before returning a final response.
 
 ---
 
