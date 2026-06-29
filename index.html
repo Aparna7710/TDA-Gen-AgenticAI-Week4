@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity Agent</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-text">Clarity <em>Agent</em></span>
+    </div>
+    <div class="header-right">
+      <span class="memory-badge" id="memoryBadge">0 memories</span>
+      <button class="btn-ghost" id="clearBtn">clear session</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Clarity <em>Agent</em></h1>
+      <p class="subtitle">the AI that thinks before answering your thoughts.</p>
+    </section>
+
+    <div class="agent-container">
+      <div class="chat-panel" id="chatPanel">
+        <div class="empty-state" id="emptyState">
+          <p>Ask anything. The agent will figure out the rest.</p>
+          <div class="example-chips">
+            <button class="chip" onclick="useExample(this)">Explain statistics of unemployment</button>
+            <button class="chip" onclick="useExample(this)">Explain scope of AI/ML for future careers</button>
+            <button class="chip" onclick="useExample(this)">Explain possible recession indicators</button>
+          </div>
+        </div>
+        <div id="messages"></div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            placeholder="Ask the agent something..."
+            rows="1"
+            onkeydown="handleKey(event)"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" onclick="runAgent()">
+            <span>&#8593;</span>
+          </button>
+        </div>
+        <p class="input-hint">Enter to send &middot; Shift+Enter for new line &middot; session memory active</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="agent.js"></script>
+</body>
+</html>
