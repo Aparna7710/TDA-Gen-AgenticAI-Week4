@@ -102,61 +102,7 @@ clarity-agent/
 
 ## Deploying to Vercel
 
-Since this is a static HTML/CSS/JS project with no build step, Vercel deploys it as-is. The only thing to handle is the API key — `config.js` is gitignored so it won't be on GitHub, which means you need to inject the key differently on Vercel.
-
-**Step 1 — Add a vercel.json file**
-
-Create a file called `vercel.json` in the root of your project with this content:
-
-```json
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
-```
-
-This tells Vercel to serve your static files correctly.
-
-**Step 2 — Update config.js handling for production**
-
-Since `config.js` won't exist on Vercel, update the top of `agent.js` to fall back gracefully:
-
-```js
-const GEMINI_API_KEY = window.GEMINI_API_KEY || "";
-```
-
-Then create a file called `config.js` locally (already gitignored) for local dev, and on Vercel you will set the key as an environment variable — but since this is a frontend-only app with no server, the cleanest approach is to generate `config.js` at build time using a Vercel build command.
-
-**Step 3 — Add a build script**
-
-In `vercel.json`, update it to:
-
-```json
-{
-  "buildCommand": "echo \"window.GEMINI_API_KEY='$GEMINI_API_KEY';\" > config.js",
-  "outputDirectory": ".",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
-```
-
-This tells Vercel to generate `config.js` from the environment variable before deploying.
-
-**Step 4 — Deploy on Vercel**
-
-1. Go to [vercel.com](https://vercel.com) and sign in with your GitHub account
-2. Click **Add New Project**
-3. Import your `clarity-agent` repository
-4. Before clicking deploy, go to **Environment Variables** and add:
-   - Key: `GEMINI_API_KEY`
-   - Value: your actual Gemini API key
-5. Click **Deploy**
-
-Vercel will run the build command, generate `config.js` with your key baked in, and serve the site. Your key never appears in your GitHub repo.
-
-**After deployment**, every push to your `main` branch will automatically redeploy.
+This project has also been deployed to vercel on the link: https://tda-gen-agentic-ai-week4.vercel.app/
 
 ---
 
